@@ -1,0 +1,2 @@
+# Exclure les fichiers exécutables spécifiques
+terraform/.terraform/providers/**/*.exe
