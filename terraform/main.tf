@@ -24,7 +24,7 @@ resource "azurerm_resource_group" "rg_main" {
 
 # Créez un registre de conteneurs Azure
 resource "azurerm_container_registry" "acr" {
-  name                = "amineContainerRegistry"
+  name                = "osamiwcontainerregistry"
   resource_group_name = azurerm_resource_group.rg_main.name
   location            = azurerm_resource_group.rg_main.location
   sku                 = "Standard"
@@ -33,7 +33,7 @@ resource "azurerm_container_registry" "acr" {
 
 # Créez un cluster Kubernetes Service
 resource "azurerm_kubernetes_cluster" "aks" {
-  name                = "amineAKSCluster"
+  name                = "devopsAKSCluster"
   location            = azurerm_resource_group.rg_main.location
   resource_group_name = azurerm_resource_group.rg_main.name
   dns_prefix          = "myakscluster"

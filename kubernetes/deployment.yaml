@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: flask-app
-        image: aminecontainerregistry.azurecr.io/superapp-api:v1.0
+        image: osamiwcontainerregistry.azurecr.io/examdevops:iw2
         ports:
         - containerPort: 8000
         env:

@@ -28,3 +28,26 @@ Envoyer l'image sur ACR :
 shell
 
 docker push <nom_registry>.azurecr.io/<nom_image>:<tag>
+
+//
+
+dans le dossier Terraform :
+cd terraform
+terraform init
+terraform plan
+terraform apply
+
+dans le dossier Flask-app :
+cd flask-app
+az acr login --name osamiwcontainerregistry
+docker tag examdevops:iw2 osamiwcontainerregistry.azurecr.io/examdevops:iw2
+docker push osamiwcontainerregistry.azurecr.io/examdevops:iw2
+az aks update -n devopsAKSCluster -g rg-amine-cherigui-cc --attach-acr osamiwcontainerregistry
+
+dans le dossier kubernetese :
+cd kubernetes
+az aks get-credentials --resource-group rg-amine-cherigui-cc --name devopsAKSCluster
+kubectl apply -f deployment.yaml 
+kubectl apply -f service.yaml 
+kubectl apply -f redis-service.yaml 
+kubectl apply -f redis-deployment.yaml
